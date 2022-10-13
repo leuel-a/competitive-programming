@@ -12,3 +12,8 @@ large data sets as its average and worst-case time complexity is quite high.
 cards in your hands. The array is virtually split into a sorted and an unsorted part. Values 
 from the unsorted part are picked and placed at the correct position in the sorted part.</p>
 
+<h3>3. Counting Sort</h3>
+<p><b>Counting Sort</b> is a sorting technique based on keys between a specific range. It works by counting 
+the number of objects having distinct key values (kind of hashing). Then do some arithmetic to calculate 
+the position of each object in the output sequence.</p>
+
