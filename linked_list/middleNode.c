@@ -8,6 +8,17 @@
 */
 struct ListNode* middleNode(struct ListNode* head)
 {
-    
+    int sizeOfList, middleOfList, i;
+    struct ListNode *aux;
+
+    aux = head, sizeOfList = 0;
+    while (aux != NULL)
+        aux = aux->next, sizeOfList++;
+    middleOfList = sizeOfList / 2 + 1;
+
+    aux = head, i = 0;
+    while (aux != NULL && i != middleOfList - 1)
+        aux = aux->next, ++i;
+    return aux;
 }
 
