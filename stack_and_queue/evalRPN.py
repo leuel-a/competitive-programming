@@ -4,8 +4,7 @@ from math import floor, ceil
 
 
 class Solution:
-    @staticmethod
-    def evalRPN(tokens: list[str]) -> int:
+    def evalRPN(self, tokens: list[str]) -> int:
         """Evaluates an RPN expression"""
         stack = []
         for token in tokens:
