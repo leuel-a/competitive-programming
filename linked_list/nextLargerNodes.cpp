@@ -11,72 +11,11 @@ struct ListNode {
     int n;
     ListNode *next;
 };
-
-void print_list(const ListNode *head);
-ListNode *addnode_end(ListNode **head, int value);
-vector<int> nextLargerNodes(ListNode* head);
-
-
 /**
- * main - entry point of program
+ * nextLargerNodes - finds the next larger nodes in a linked list
+ * @head: address of the head node of the linked list
  *
- * Return: Always 0.
-*/
-int main(void)
-{
-    ListNode *head;
-
-    head = NULL;
-    addnode_end(&head, 2);
-    addnode_end(&head, 1);
-    addnode_end(&head, 5);
-    print_list(head);
-    std::putchar('\n');
-    nextLargerNodes(head);
-    return 0;
-}
-
-/**
- * print_list - prints a singly-linked list
- * @head: head node of the list to be printed
- *
- * Return: Nothing.
-*/
-void print_list(const ListNode *head)
-{
-    if (!head)
-        return;
-    while (head != NULL)
-        std::printf("%d\n", head->n), head = head->next;
-}
-
-/**
- *
-*/
-ListNode *addnode_end(ListNode **head, int value)
-{
-    ListNode *temp, *aux;
-
-    temp = (ListNode *)std::malloc(sizeof(ListNode));
-    if (temp == NULL)
-        return NULL;
-    temp->n = value;
-    temp->next = NULL;
-
-    if (*head == NULL)
-        *head = temp;
-    else
-    {
-        aux = *head;
-        while (aux->next != NULL)
-            aux = aux->next;
-        aux->next = temp;
-    }
-    return temp;
-}
-
-/**
- *
+ * Return: On success, it returns the next larger nodes vector.
 */
 vector<int> nextLargerNodes(ListNode* head)
 {
