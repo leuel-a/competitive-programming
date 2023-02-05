@@ -1,4 +1,13 @@
-#include "lists.h"
+#include <stdlib.h>
+#include <stdio.h>
+
+/**
+ * Definition for singly-linked list.
+ */
+struct ListNode {
+    int val;
+    struct ListNode *next;
+};
 
 /**
  * deleteDuplicates - removes duplicates from a sorted linked list
@@ -9,24 +18,22 @@
 */
 struct ListNode* deleteDuplicates(struct ListNode* head)
 {
-    struct ListNode *uniqueHead, *uniqueTail, *temp;
+    struct ListNode *aux, *prev, *curr;
+    int value;
 
-    if (!head)
-        return (NULL);
-    uniqueHead = head;
-    head = head->next;
-    uniqueTail = uniqueHead;
-    while (head != NULL)
+    prev = NULL, curr = head;
+    while (curr != NULL)
     {
-        if (uniqueTail->val != head->val)
-        {
-            temp = head, head = head->next;
-            uniqueTail->next = temp;
-            uniqueTail = temp;
-        } else {
-            head = head->next;
-        }
+        value = curr->val, aux = curr->next;
+        while (aux != NULL && aux->val == value)
+            aux = aux->next;
+
+        if (curr->next == aux)
+            prev = curr, curr = curr->next;
+        else if (prev == NULL)
+            curr = aux, head = curr;
+        else
+            prev->next = aux, curr = aux;
     }
-    uniqueTail->next = NULL;
-    return (uniqueHead);
+    return head;
 }
