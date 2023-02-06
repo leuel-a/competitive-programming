@@ -24,17 +24,3 @@ public:
         return -1;
     }
 };
-
-/**
- * main - entry point of my program
- *
- * Return: Always zero.
-*/
-int main(void)
-{
-    Solution solution = Solution();
-    vector<int> nums{2, 1, -1};
-
-    printf("%d\n", solution.pivotIndex(nums));
-    return 0;
-}
