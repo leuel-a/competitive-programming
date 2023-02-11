@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using std::vector, std::min;
+
 class Solution {
     int dp[21][21]; //dp array
 	//dp[i][j]= maxm a player can score if they have access to elements form index i to index j only
