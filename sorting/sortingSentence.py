@@ -15,26 +15,14 @@ class Solution:
 
         Given a shuffled sentence s containing no more than 9 words, reconstruct and return the original sentence.
     """
-
     def sortSentence(self, s: str) -> str:
-        """Sorts a sentence
-
-        Args:
-            s (str): this is the sentence to be sorted
-        """
-        piece = s.split()
-        
-        sort = {}
-        
-        for i in piece:
-            sort[int(i[-1])] = i[:-1]
-            
-        s_new = ""
-        
-        for j in range(1, len(piece) + 1):
-            if j == 1:
-                s_new = s_new + sort[j]
-            else:
-                s_new = s_new + " " + sort[j]
-            
-        return s_new
+        """Sorts a sentence based on tokens"""
+        split = s.split(' ')
+        for i in range(1, len(split)):
+            key, j = split[i], i - 1
+            while j >= 0 and int(split[j][-1]) > int(key[-1]):
+                split[j + 1] = split[j]
+                j -= 1
+            split[j + 1] = key
+        sorted_sentence = ' '.join([str(item[:-1]) for item in split])
+        return sorted_sentence
