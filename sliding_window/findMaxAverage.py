@@ -26,5 +26,3 @@ class Solution:
             j += 1
         return maxAverage
 
-sol = Solution()
-print(sol.findMaxAverage([-1], 1))
