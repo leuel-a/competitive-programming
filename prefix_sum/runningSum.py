@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """LeetCode Problem #1480 -> Running Sum of 1d Array"""
 
-
 class Solution:
     def runningSum(self, nums: list[int]) -> int:
         prefixSum = []
