@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+# LeetCode Problem #100 --> Same Tree
+
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -15,3 +17,4 @@ class Solution:
         if p.val == q.val:
             return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
         return False
+
