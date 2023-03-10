@@ -16,6 +16,3 @@ class Solution:
                 curr.pop()
         backtrack(1)
         return combinations
-
-sol = Solution()
-print(sol.combine(4, 2))
