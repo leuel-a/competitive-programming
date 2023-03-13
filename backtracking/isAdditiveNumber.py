@@ -7,21 +7,18 @@ class Solution:
 
         def backtrack(idx: int) -> bool:
             if idx >= len(num):
-                return idx == len(num)
+                return len(curr) >= 3 
 
             for i in range(idx, len(num)):
                 var = num[idx:i+1]
                 
                 if var != str(int(var)):
-                    continue
+                    return False
 
-                if len(curr) >= 2 and curr[-2] + curr[-1] == int(var):
+                if len(curr) < 2 or curr[-2] + curr[-1] == int(var):
                     curr.append(int(var))
-                    backtrack(i+1)
+                    if backtrack(i+1):
+                        return True
                     curr.pop()
-
             return False
         return backtrack(0)
-
-sol = Solution()
-print(sol.isAdditiveNumber('112'))
