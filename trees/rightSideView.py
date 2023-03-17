@@ -13,8 +13,10 @@ class Solution:
             if level not in dict_s.keys():
                 rightView.append(root.val)
                 dict_s[level] = root.val
+            
             if root.right:
                 rightSideViewHelper(root.right, level + 1)
-            rightSideViewHelper(root.left, level + 1)
+            if root.left:
+                rightSideViewHelper(root.left, level + 1)
         rightSideViewHelper(root, 0)
         return rightView
