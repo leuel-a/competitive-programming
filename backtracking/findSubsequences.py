@@ -11,6 +11,8 @@ class Solution:
                 if tuple(curr) not in dict_s:
                     sequence.append(curr[:])
                     dict_s[tuple(curr)] = 1
+                else:
+                    return
 
             if idx >= len(nums):
                 return
