@@ -7,3 +7,4 @@ def countingSort(arr):
     for i in arr:
         count_array[i] += 1
     return count_array
+
