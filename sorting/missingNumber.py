@@ -3,17 +3,18 @@
 
 
 class Solution:
-    def missingNumber(self, nums: list) -> int:
+    def missingNumber(self, nums: List[int]) -> int:
         i = 0
         for i in range(len(nums)):
             pos = nums[i]
-            if  pos != i:
+            while pos != i:
                 if 0 <= pos < len(nums):
                     nums[pos], nums[i] = nums[i], nums[pos]
                 else:
-                    continue
+                    break
+                pos = nums[i]
 
         for i in range(len(nums)):
             if nums[i] != i:
                 return i
-        return len(nums)
+        return len(nums)      
