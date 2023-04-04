@@ -8,8 +8,6 @@ class Solution:
         frequency = Counter(deck)
         _min = min(frequency.values())
 
-        if _min == 1:
-            return False
         while _min > 1:
             for val in frequency.values():
                 if val % _min != 0:
