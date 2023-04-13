@@ -19,13 +19,12 @@ class Solution:
 
         def detonate_bombs(bomb: int) -> None:
             nonlocal count
-            if bomb in visited:
-                return
 
             count += 1
             visited.add(bomb)
             for val in graph[bomb]:
-                detonate_bombs(val)
+                if val not in visited:
+                    detonate_bombs(val)
 
         for i in range(len(bombs)):
             count = 0
