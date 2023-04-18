@@ -5,7 +5,7 @@ Current Number"""
 
 
 class Solution:
-    def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
+    def smallerNumbersThanCurrent(self, nums: list[int]) -> list[int]:
         smallerArr = []
 
         for i in nums:

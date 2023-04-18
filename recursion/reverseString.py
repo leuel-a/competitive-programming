@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""LeetCode Problem #344 --> Reverse String"""
-
+"""LeetCode #344 --> Reverse String"""
 
 class Solution:
     def reverseString(self, s: list[str]) -> None:

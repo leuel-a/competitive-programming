@@ -3,7 +3,7 @@
 
 
 class Solution:
-    def findKthLargest(self, nums: List[int], k: int) -> int:
+    def findKthLargest(self, nums: list[int], k: int) -> int:
 
         def findKthLargestHelper(start, end) -> int:
             pivot, write = nums[start], start + 1
