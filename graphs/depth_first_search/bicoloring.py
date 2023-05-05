@@ -1,30 +1,37 @@
 #!/usr/bin/python3
-""""""
-from collections import defaultdict
+"""Eolymp Problem --> Bicoloring"""
+from collections import defaultdict, deque
 
-while True:
-    nodes = int(input())
-    if nodes == 0:
-        sys.exit()
-    else:
-        graph = defaultdict(list)
 
-        n = int(input())
-        for _ in range(n):
+def checkIfBicolorable() -> None:
+    graph = defaultdict(list)
+    while True:
+        nodes = int(input())
+        if nodes == 0:
+            break
+
+        graph.clear()
+        num_of_edges = int(input())
+        for i in range(num_of_edges):
             i, j = map(int, input().split())
             graph[i].append(j)
             graph[j].append(i)
 
-        color = [-1 for i in range(n)]
-        def depth_first_search(node: int) -> bool:
+        stack = [1]
+        color =[-1 for i in range(nodes)]
 
-            for neighbour in graph[node]:
-                if color[neighbour - 1] == -1:
-                    color[neighbour - 1] = 1 - color[node - 1]
-                    return depth_first_search(neighbour)
-                else:
-                    if color[neighbour - 1] == color[node - 1]:
-                        return False
-            return True
-        print(graph)
+        color[0], bicolorable = 0, True
+        while stack and bicolorable:
+            node = stack.pop()
 
+            for val in graph[node]:
+                if color[val - 1] == -1:
+                    color[val - 1] = 1 - color[node - 1]
+                    stack.append(val)
+                elif color[val - 1] == color[node - 1]:
+                    bicolorable = False
+
+        print("BICOLOURABLE." if bicolorable else "NOT BICOLOURABLE.")
+
+if __name__ == '__main__':
+    checkIfBicolorable()
