@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""LeetCode Problem #213 --> House Robber"""
+"""LeetCode Problem #213 --> House Robber II"""
 from typing import List
 from functools import cache
 
