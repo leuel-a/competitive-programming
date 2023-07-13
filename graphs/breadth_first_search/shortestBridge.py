@@ -13,6 +13,9 @@ class Solution:
             return 0 <= row < len(grid) and 0 <= col < len(grid[0])
 
         def get_neighbours(row: int, col: int) -> List[int]:
+            """Function that accepts a row and a column and returns
+            all valid neighbours
+            """
             directions = [
                 (0, 1),
                 (0, -1),
@@ -29,6 +32,7 @@ class Solution:
                     neighbours.append((new_row, new_col))
             return neighbours
 
+        # Group Creation Part
         for group in groups:
             flag = False
             for i in range(len(grid)):
@@ -51,6 +55,7 @@ class Solution:
                     flag = False
                     break
 
+        # Main Solution Part
         visited = set()
         for val in groups[0]:
             queue.append((val, 0))
@@ -65,4 +70,3 @@ class Solution:
                 if (new_row, new_col) not in visited:
                     visited.add((new_row, new_col))
                     queue.append(((new_row, new_col), flips + 1 if grid[new_row][new_col] == 0 else flips))
-
