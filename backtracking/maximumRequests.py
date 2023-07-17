@@ -17,15 +17,13 @@ class Solution:
                 return
 
             a, b = requests[idx]
-            if a != b:
-                curr[a] -= 1
-                curr[b] += 1
+            curr[a] -= 1
+            curr[b] += 1
 
             backtrack(idx + 1, req + 1)
 
-            if a != b:
-                curr[a] += 1
-                curr[b] -= 1
+            curr[a] += 1
+            curr[b] -= 1
 
             backtrack(idx + 1, req)
 
