@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """LeetCode Problem #1926 --> Nearest Exit from Entrance in Maze"""
-from typing import List
 from collections import deque
+from typing import List
 
 
 class Solution:
@@ -16,7 +16,6 @@ class Solution:
         queue = deque([(entrance[0], entrance[1], 0)])
         while queue:
             row, col, dist = queue.popleft()
-            visited.add((row, col))
 
             for row_c, col_c in directions:
                 new_row = row + row_c
@@ -27,5 +26,5 @@ class Solution:
 
                 if in_bound(new_row, new_col) and maze[new_row][new_col] != '+' and (new_row, new_col) not in visited:
                     queue.append((new_row, new_col, dist + 1))
+                    visited.add((new_row, new_col))
         return -1
-
