@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """LeetCode Problem #947 --> Most Stones Removed with Same Row or Column"""
 from typing import List
+from collections import Counter
 
 
 class DisJointSet:
