@@ -48,6 +48,8 @@ class Solution:
                 if a == c or b == d:
                     unionFind.union(i, j)
 
+        # For some reason the path compression is not working
+        # so we need to call the represenative of each node
         for i in range(len(stones)):
             unionFind.representative(i)
         return len(stones) - len(Counter(unionFind.rep)) if len(stones) > 1 else 0
