@@ -1,5 +1,6 @@
 """Leetcode Problem #174 --> Dungeon Game"""
 from typing import List
+from functools import cache
 
 
 class Solution:
