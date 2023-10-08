@@ -10,6 +10,7 @@ class TreeNode:
         self.left = left
         self.right = right
 
+
 class Solution:
     def widthOfBinaryTree(self, root: Optional[TreeNode]) -> int:
         if not root:
