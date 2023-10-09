@@ -1,30 +1,47 @@
-#!/usr/bin/python3
-"""LeetCode Problem #34 --> Find First and Last Position of Element in Sorted Array
-
-"""
+"""Leetcode Problem #34 --> Find First and Last Position of Element in Sorted Array"""
+from typing import List
 
 
 class Solution:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        result = [-1, -1]
 
-    def binarySearch(self, nums: list[int], target: int, low: int, high: int):
+        # First Index Search
+        low, high = 0, len(nums) - 1
+        while low <= high:
+            mid = low + (high - low) // 2
 
-        if low > high:
-            return -1
+            if nums[mid] == target:
+                if result[0] == -1:
+                    result[0] = mid
+                    high = mid - 1
+                elif mid > result[0]:
+                    high = mid - 1
+                else:
+                    result[0] = mid
+                    high = mid - 1
+            elif nums[mid] < target:
+                low = mid + 1
+            else:
+                high = mid - 1
 
-        mid = low + (high - low) // 2
-        if nums[mid] > target:
-            high = mid - 1
-        elif nums[mid] < target:
-            low = mid + 1
-        else:
-            return [low, mid]
-        return self.binarySearch(nums, target, low, high)
+        # Last Index Search
+        low, high = 0, len(nums) - 1
+        while low <= high:
+            mid = low + (high - low) // 2
 
+            if nums[mid] == target:
+                if result[1] == -1:
+                    result[1] = mid
+                    low = mid + 1
+                elif mid < result[1]:
+                    low = mid + 1
+                else:
+                    result[1] = mid
+                    low = mid + 1
+            elif nums[mid] < target:
+                low = mid + 1
+            else:
+                high = mid - 1
 
-
-    def searchRange(self, nums: list[int], target: int) -> list[int]:
-        pass
-
-sol = Solution()
-print(sol.binarySearch([5,7,7,8,8,10], 8, 0, 5))
-
+        return result
