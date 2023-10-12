@@ -1,4 +1,5 @@
-#!/usr/bin/python3
+"""Leetcode Problem #155 --> Min Stack"""
+
 
 class MinStack:
 
@@ -9,13 +10,29 @@ class MinStack:
         if not self.stack:
             self.stack.append((val, val))
         else:
-            self.stack.append((val, min(self.stack[-1][1], val)))
-        print(self.stack)
+            _, currMin = self.stack[-1]
+
+            if val > currMin:
+                self.stack.append((val, currMin))
+            else:
+                self.stack.append((val, val))
+
     def pop(self) -> None:
-        self.stack.pop()
+        if self.stack:
+            self.stack.pop()
 
     def top(self) -> int:
-        return self.stack[-1][0]
+        top, _ = self.stack[-1]
+        return top
 
     def getMin(self) -> int:
-        return self.stack[-1][1]
+        _, currMin = self.stack[-1]
+        return currMin
+
+
+# Your MinStack object will be instantiated and called as such:
+# obj = MinStack()
+# obj.push(val)
+# obj.pop()
+# param_3 = obj.top()
+# param_4 = obj.getMin()
