@@ -1,20 +1,24 @@
-#!/usr/bin/python3
-"""LeetCode Problem #230 --> Kth Smallest Element in a BST"""
+"""Leetcode Problem #230 --> Kth Smallest in a BST"""
+from typing import Optional
+
+
+# Definition for a binary tree node.
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
 
 class Solution:
-    def kthSmallest(self, root, k: int) -> int:
-        inorder_traversal = []
+    def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+        def inorder(node: Optional[TreeNode]):
+            if not node:
+                return []
 
-        def traverse_tree(root) -> int:
-            if not root:
-                return
+            left = inorder(node.left)
+            right = inorder(node.right)
 
-            traverse_tree(root.left)
-            inorder_traversal.append(root.val)
-
-            if len(inorder_traversal) == k:
-                return
-
-            traverse_tree(root.right)
-        traverse_tree(root)
-        return inorder_traversal[k - 1]
+            return left + [node.val] + right
+        inorderList = inorder(root)
+        return inorderList[k-1]
