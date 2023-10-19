@@ -15,6 +15,7 @@ class Solution:
         flag = False
 
         def dfs(node: Optional[TreeNode]) -> None:
+            nonlocal flag
             if not node:
                 return
 
@@ -22,7 +23,7 @@ class Solution:
                 if flag:
                     root1Leaves.append(node.val)
                 else:
-                    root2Leaves.append(node.val)
+                    root2Leaves.append(node.valw)
                 return
 
             dfs(node.left)
