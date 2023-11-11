@@ -1,5 +1,6 @@
 """Leetcode Problem #2642 --> Design Graph With Shortest Path Calculator"""
 from collections import defaultdict
+from heapq import heappop, heappush
 from typing import List
 
 
